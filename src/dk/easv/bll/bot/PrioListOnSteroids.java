@@ -6,6 +6,7 @@ import dk.easv.bll.move.IMove;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class PrioListOnSteroids extends LocalPrioritisedListBot{
     private static final String BOTNAME = "PrioList on Steroids";
@@ -29,7 +30,7 @@ public class PrioListOnSteroids extends LocalPrioritisedListBot{
         board[move.getX()][move.getY()] = player;
 
         int startX = move.getX()-(move.getX()%3);
-        if(board[startX][move.getY()]==player)
+        if(Objects.equals(board[startX][move.getY()], player))
             if (board[startX][move.getY()] == board[startX+1][move.getY()] &&
                 board[startX+1][move.getY()] == board[startX+2][move.getY()])
                     return true;
